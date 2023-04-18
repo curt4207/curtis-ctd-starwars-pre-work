@@ -1,12 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+               
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --mui-palette-primary-light: #42a5f5;
+  --mui-palette-primary-dark: #0a4614;
+  --mui-palette-primary-contrastText: #fff;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,16 +20,30 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --empireIcon: url("/empireIcon.png");
+    --rebelIcon: url("/public/rebel.png");
+
   }
 }
 
 body {
   margin: auto;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--color-bg-primary);
+  transition: background 0.25s ease-in-out; 
+}
+body[data-theme="light"] {
+  --color-text-primary: #27201a;
+  --color-text-secondary: #076963;
+  --color-bg-primary: #fff;
+
+  --color-bg-toggle: #1e90ff;
+}
+
+body[data-theme="dark"] {
+  --color-text-primary: #e3e3e3;
+  --color-text-secondary: #ff6b00;
+  --color-bg-primary: #15232d;
+
+  --color-bg-toggle: #c15656;
 }
